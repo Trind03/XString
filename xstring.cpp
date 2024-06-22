@@ -11,6 +11,7 @@ string::string(const char* m_other)
 string::~string()
 {
     delete[] m_data;
+    m_data = nullptr;
 }
 int string::length(const char* m_other)
 {
