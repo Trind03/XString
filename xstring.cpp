@@ -1,20 +1,21 @@
 #include <cstdint>
-#include "string.h"
+#include "xstring.h"
+#include <iostream>
 
-string::string(const char* m_other): m_data(new char[length(m_other) + 1])
+string::string(const char* m_other)
 {
-
+    m_size = length(m_other);
+    m_data = new char[m_size];
+    std::memcpy(m_data, m_other, m_size);
 }
-
 string::~string()
 {
     delete[] m_data;
-    m_data = nullptr;
 }
-
-uint32_t length(const char*& m_data)
+int string::length(const char* m_other)
 {
-    uint32_t length = 0;
-    while(m_data[length] != '\0')   length++;
+    
+    int length = 0;
+    while(m_other[length] != '\0') length++;
     return length;
 }
