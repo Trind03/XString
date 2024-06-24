@@ -1,13 +1,10 @@
-#include "../xstring.h"
 #include <iostream>
+#include "../xstring.h"
 
 int main()
 {
-    string mystring = "Hello World!";
-    if(mystring == "Hello World!")
-        std::cout <<"its hello world!";
-    else
-        std::cout << "its not hello world" << std::endl;
+    string str1 = "Hello World";
+    string str2 = "Server";
+    string mystring = str1 + str2;
     std::cout << mystring;
-    return EXIT_SUCCESS;
 }
