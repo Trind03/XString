@@ -20,15 +20,14 @@ public:
 
         char* str = new char(string1_size + string2_size);
 
-        strcpy(str,string1.m_data);
-        strcpy(str,string2.m_data);
-        
-        string1.~string();
-        string2.~string();
+        strcat(str,string1.m_data);
+        strcat(str,string2.m_data);
+
 
         string result = std::move(str);
         return result;
     }
+    
     explicit operator const char*() const { return m_data; }
 private:
     int calculate_size(const char* m_other);

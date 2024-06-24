@@ -8,6 +8,7 @@ string::string(const char* m_other)
     m_data = new char[m_size];
     std::memcpy(m_data, m_other, m_size);
 }
+
 string::string() 
 {
     constexpr uint8_t size = 1;
@@ -19,10 +20,11 @@ string::string(char*&& ptr): m_data(ptr)
 {
 
 }
+
 string::~string()
 {
-    //delete[] m_data;
-    //m_data = nullptr;
+    delete[] m_data;
+    m_data = nullptr;
 }
 
 int string::length()
@@ -31,7 +33,6 @@ int string::length()
 }
 int string::calculate_size(const char* m_other)
 {
-    
     int length = 0;
     while(m_other[length] != '\0') length++;
     return length;
