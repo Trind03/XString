@@ -26,7 +26,7 @@ public:
         string result = std::move(str);
         return result;
     }
-    
+        
     explicit operator const char*() const { return m_data; }
 private:
     int calculate_size(const char* m_other);
