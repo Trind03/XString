@@ -6,5 +6,5 @@ int main()
     string str1 = "Hello World";
     string str2 = " Server";
     string mystring = str1 + str2;
-    std::cout << mystring;
+    std::cout << str1 << std::endl;
 }
