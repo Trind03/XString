@@ -3,6 +3,7 @@
 #include <cstring>
 #include <iostream>
 
+
 string::string(const char* m_other): m_data_mem(true)
 {
     m_size = calculate_size(m_other);
