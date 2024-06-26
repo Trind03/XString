@@ -1,5 +1,6 @@
 #include <cstdint>
 #include "xstring.h"
+#include <cstring>
 #include <iostream>
 
 string::string(const char* m_other): m_data_mem(true)
@@ -27,7 +28,7 @@ string::~string()
     if(m_data_mem)
     {
         delete[] m_data;
-        m_data_mem = false;
+        !m_data_mem;
     }
     m_data = nullptr;
 }
