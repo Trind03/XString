@@ -2,8 +2,8 @@ import os;
 import hashlib
 import time
 
-pre_build = "cmake -B ./build -S . -G \"Unix Makefiles\""
-build = "cmake --build ./build"
+PRE_BUILD = "cmake -B ./build -S . -G \"Unix Makefiles\""
+BUILD = "cmake --build ./build"
 checksum = ""
 new_checksum = ""
 
@@ -21,14 +21,14 @@ def gethash(path):
     return hash.hexdigest()
 
 while(True):
-    
+
     new_checksum = gethash("./src")
     if(checksum == ""):
-        os.system(pre_build)
+        os.system(PRE_BUILD)
 
     elif(checksum != new_checksum):
         print("Change Detected!\n")
-        os.system(build)
+        os.system(BUILD)
         time.sleep(1)
 
     else:
