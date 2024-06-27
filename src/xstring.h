@@ -5,14 +5,14 @@
 class string
 {
 public:
-    string(const char* m_other);
+    string(const char* m_other); 
     string();
     string(char*&& ptr);
     //string(string& str) = delete;
     ~string();
 
     int length();
-    
+
     friend std::ostream& operator<<(std::ostream& stream, string& str) { stream << str.m_data; return stream; }
     
     friend string operator+(string& string1, string& string2)

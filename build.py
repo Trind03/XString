@@ -9,7 +9,7 @@ new_checksum = ""
 
 def gethash(path):
     hash = hashlib.md5()
-    for root,dirs,files in os.walk(path):
+    for root,dist,files in os.walk(path):
         for file in sorted(files):
             file_path = os.path.join(root,file)
             try:

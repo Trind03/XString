@@ -3,13 +3,14 @@
 #include <cstring>
 #include <iostream>
 
+ 
 string::string(const char* m_other): m_data_mem(true)
 {
     m_size = calculate_size(m_other);
     m_data = new char[m_size + 1];
     m_data[m_size] = '\0';
     std::memcpy(m_data, m_other, m_size);
-} 
+}
    
 string::string(): m_data_mem(true)
 {
