@@ -13,5 +13,8 @@ while true; do
         checksum=$new_checksum
         $pre_build
         $build
+    else
+        
+        sleep 5
     fi
 done
