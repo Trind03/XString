@@ -4,7 +4,7 @@
 int main()
 {
     string hello = "Hello ";
-    string world = "World";
-    string hello_world = hello + world;
-    std::cout << hello_world << std::endl; 
+    string World = "World ";
+    string Hello_World = hello + World;
+   std::cout << Hello_World << std::endl; 
 }

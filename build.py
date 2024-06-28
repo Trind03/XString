@@ -29,9 +29,9 @@ while(True):
     elif(checksum != new_checksum):
         print("Change Detected!\n")
         os.system(BUILD)
-        time.sleep(0.3)
+        time.sleep(1)
 
     else:
-        time.sleep(0.3)
+        time.sleep(1)
         
     checksum = new_checksum
