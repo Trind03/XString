@@ -1,7 +1,9 @@
 #include <cstdint>
 #include "xstring.h"
+#include <cstring>
 #include <iostream>
 
+ 
 string::string(const char* m_other): m_data_mem(true)
 {
     m_size = calculate_size(m_other);
@@ -9,7 +11,7 @@ string::string(const char* m_other): m_data_mem(true)
     m_data[m_size] = '\0';
     std::memcpy(m_data, m_other, m_size);
 }
-
+   
 string::string(): m_data_mem(true)
 {
     constexpr uint8_t size = 2;
@@ -27,7 +29,7 @@ string::~string()
     if(m_data_mem)
     {
         delete[] m_data;
-        m_data_mem = false;
+        !m_data_mem;
     }
     m_data = nullptr;
 }
