@@ -25,7 +25,8 @@ while(True):
     new_checksum = gethash("./src")
     if(checksum == ""):
         os.system(PRE_BUILD)
-
+        checksum = new_checksum
+        
     elif(checksum != new_checksum):
         print("Change Detected!\n")
         os.system(BUILD)
