@@ -1,6 +1,5 @@
 import os;
 import hashlib
-import time
 
 PRE_BUILD = "cmake -B ./build -S . -G \"Unix Makefiles\""
 BUILD = "cmake --build ./build"
@@ -30,9 +29,9 @@ while(True):
     elif(checksum != new_checksum):
         print("Change Detected!\n")
         os.system(BUILD)
-        time.sleep(1)
 
-    else:
-        time.sleep(1)
-        
+    elif(checksum == new_checksum): print("Source code hasn't changed.")
+
+    else: continue
+            
     checksum = new_checksum
