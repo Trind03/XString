@@ -24,7 +24,7 @@ string::string(char*&& m_other): m_data(std::move(m_other)), m_data_mem(true)
     m_other = nullptr;
 }
 
-string::~string()
+string::~string() 
 {
     if(m_data_mem)
     {
