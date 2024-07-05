@@ -12,7 +12,7 @@ public:
     ~string();
 
     int length();
-    const char** to_upper();
+    const char** to_upper(const char*&&);
     // Overloads
     friend std::ostream& operator<<(std::ostream& stream, string& str) { stream << str.m_data; return stream; }
     

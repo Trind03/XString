@@ -45,7 +45,7 @@ int string::calculate_size(const char* m_other)
     return length;
 }
 
-const char** string::to_upper()
+const char** string::to_upper(const char*&&)
 {
-    
+
 }

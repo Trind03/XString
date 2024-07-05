@@ -21,18 +21,20 @@ def gethash(path):
                 print(f"Error cannot read {file_path}")
     return hash.hexdigest()
 
+os.system(PRE_BUILD)
+os.system(BUILD)
+
 while(True):
     value = input("> ")
     new_checksum = gethash("./src")
     if(value == ""):
-        if(checksum != new_checksum or init):
+
+        if(checksum == ""): checksum = new_checksum
+            
+        elif(checksum != new_checksum):
             print("Change Detected!\n")
             os.system(BUILD)
             checksum = new_checksum
-            
-        elif(checksum != new_checksum or init):
-            os.system(PRE_BUILD)
-            init = True
 
         elif(checksum == new_checksum):
             os.system("clear")
