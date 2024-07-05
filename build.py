@@ -1,6 +1,6 @@
 import os;
 import hashlib
-
+import 
 PRE_BUILD = "cmake -B ./build -S . -G \"Unix Makefiles\""
 BUILD = "cmake --build ./build"
 checksum = ""
@@ -20,18 +20,22 @@ def gethash(path):
     return hash.hexdigest()
 
 while(True):
-
+    value = input("Press enter to compile.")
     new_checksum = gethash("./src")
-    if(checksum == ""):
-        os.system(PRE_BUILD)
-        checksum = new_checksum
-        
-    elif(checksum != new_checksum):
-        print("Change Detected!\n")
-        os.system(BUILD)
+    if(value == ""):
+        if(checksum == ""):
+            os.system(PRE_BUILD)
+            checksum = new_checksum
+            
+        elif(checksum != new_checksum):
+            print("Change Detected!\n")
+            os.system(BUILD)
 
-    elif(checksum == new_checksum): print("Source code hasn't changed.")
+        elif(checksum == new_checksum): print("Source code hasn't changed.")
+
+    elif(value == "Exit" or value == "exit"): exit(0)
 
     else: continue
-            
+    
+    os.system("clear")
     checksum = new_checksum
