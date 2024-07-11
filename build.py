@@ -1,10 +1,12 @@
 import os;
 import hashlib
+import sys
 
 PRE_BUILD = "cmake -B ./build -S . -G \"Unix Makefiles\""
-BUILD = "cmake --build ./build"
+BUILD = f"cmake --build ./build --config {sys.argv[1]}"
 checksum = ""
 new_checksum = ""
+init = False
 
 def gethash(path):
     hash = hashlib.md5()
@@ -19,19 +21,25 @@ def gethash(path):
                 print(f"Error cannot read {file_path}")
     return hash.hexdigest()
 
+os.system(PRE_BUILD)
+os.system(BUILD)
+
 while(True):
-
+    value = input("> ")
     new_checksum = gethash("./src")
-    if(checksum == ""):
-        os.system(PRE_BUILD)
-        checksum = new_checksum
-        
-    elif(checksum != new_checksum):
-        print("Change Detected!\n")
-        os.system(BUILD)
+    if(value == ""):
 
-    elif(checksum == new_checksum): print("Source code hasn't changed.")
-
-    else: continue
+        if(checksum == ""): checksum = new_checksum
             
-    checksum = new_checksum
+        elif(checksum != new_checksum):
+            print("Change Detected!\n")
+            os.system(BUILD)
+            checksum = new_checksum
+
+        elif(checksum == new_checksum):
+            os.system("clear")
+            print("Source code hasn't changed.")
+
+    elif(value == "Exit" or value == "exit"): exit(0)
+
+    else: checksum = new_checksum

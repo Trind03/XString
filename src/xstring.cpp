@@ -24,12 +24,12 @@ string::string(char*&& m_other): m_data(std::move(m_other)), m_data_mem(true)
     m_other = nullptr;
 }
 
-string::~string()
+string::~string() 
 {
     if(m_data_mem)
     {
         delete[] m_data;
-        !m_data_mem;
+        m_data_mem = !m_data_mem;
     }
     m_data = nullptr;
 }
@@ -43,4 +43,15 @@ int string::calculate_size(const char* m_other)
     int length = 0;
     while(m_other[length] != '\0') length++;
     return length;
+}
+
+int string::to_upper()
+{
+    if(m_data == nullptr || length() == 0) return EXIT_FAILURE;
+
+    for(int i = 0; i < length(); i++)
+    {
+
+    }
+    return EXIT_SUCCESS;
 }
