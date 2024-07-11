@@ -29,7 +29,7 @@ string::~string()
     if(m_data_mem)
     {
         delete[] m_data;
-        !m_data_mem;
+        m_data_mem = !m_data_mem;
     }
     m_data = nullptr;
 }
