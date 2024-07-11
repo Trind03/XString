@@ -45,7 +45,13 @@ int string::calculate_size(const char* m_other)
     return length;
 }
 
-const char** string::to_upper(const char*&&)
+int string::to_upper()
 {
+    if(m_data == nullptr || length() == 0) return EXIT_FAILURE;
 
+    for(int i = 0; i < length(); i++)
+    {
+
+    }
+    return EXIT_SUCCESS;
 }
