@@ -13,7 +13,8 @@ public:
     
     int length();
     int to_upper();
-    // Overloads
+
+
     friend std::ostream& operator<<(std::ostream& stream, string& str) { stream << str.m_data; return stream; }
     
     friend string operator+(string& string1, string& string2)
