@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../xstring.h"
+#include "../src/xstring.h"
 
 int main()
 {

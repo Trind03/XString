@@ -10,7 +10,7 @@ public:
     string(char*&& ptr);
     //string(string& str) = delete;
     ~string();
-
+    
     int length();
     int to_upper();
     // Overloads
