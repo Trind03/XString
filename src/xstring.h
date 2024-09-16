@@ -23,8 +23,8 @@ public:
         total++;
         char* str = new char[total]; str[total - 1] = '\0';
  
-        strcpy_s(str,total,string1.m_data);
-        strcat_s(str,total,string2.m_data);
+        strcpy(str,string1.m_data);
+        strcat(str,string2.m_data);
         
         string1.~string();
         string2.~string();

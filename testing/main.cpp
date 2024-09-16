@@ -1,10 +1,8 @@
 #include <iostream>
 #include "../src/xstring.h"
+#include <gtest/gtest.h>
 
-int main()
+int main(int argc, char* argv)
 {
-    string hello = "Hello ";
-    string World = "World ";
-    string Hello_World = hello + World;
-   std::cout << Hello_World << std::endl; 
+    ::gtest
 }
