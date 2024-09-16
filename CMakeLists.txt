@@ -6,6 +6,7 @@ add_compile_options(-std=c++20)
 include_directories(
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_SOURCE_DIR}/testing
+    ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_SOURCE_DIR}
 
 )
