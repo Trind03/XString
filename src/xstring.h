@@ -8,7 +8,7 @@ public:
     string(const char* m_other); 
     string();
     string(char*&& ptr);
-    //string(string& str) = delete;
+    string(string&) = delete;
     ~string();
     
     int length();
@@ -30,16 +30,14 @@ public:
         string2.~string();
         return string(str);
     }
-/*
-    friend string operator+(const char* string1, string new_str)
+    const char* operator==(const char* param) const
     {
-        int total_size = new_str.calculate_size(string1) + new_str.calculate_size(new_str.m_data);
+        return this->m_data;
     }
-*/
     explicit operator const char*() const { return m_data; }
 private:
     int calculate_size(const char* m_other);
     char* m_data;
-    int m_size;
-    bool m_data_mem;
+    std::size_t m_size;
+    bool live_data;
 };

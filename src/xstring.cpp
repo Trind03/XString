@@ -4,32 +4,29 @@
 #include <iostream>
 
  
-string::string(const char* m_other): m_data_mem(true)
+string::string(const char* m_other): live_data(true), m_size(calculate_size(m_other))
 {
-    m_size = calculate_size(m_other);
     m_data = new char[m_size + 1];
     m_data[m_size] = '\0';
     std::memcpy(m_data, m_other, m_size);
 }
    
-string::string(): m_data_mem(true)
+string::string() : live_data(true), m_size(2)
 {
-    constexpr uint8_t size = 2;
     m_data = new char[m_size];
-    std::memcpy(m_data, " \0", size);
+    std::memcpy(m_data, " \0", m_size);
 }
 
-string::string(char*&& m_other): m_data(std::move(m_other)), m_data_mem(true)
+string::string(char*&& m_other): m_data(std::move(m_other)), live_data(true)
 {
     m_other = nullptr;
 }
 
 string::~string() 
 {
-    if(m_data_mem)
+    if(live_data)
     {
         delete[] m_data;
-        m_data_mem = !m_data_mem;
     }
     m_data = nullptr;
 }
