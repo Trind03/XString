@@ -11,10 +11,10 @@ public:
     string(string&) = delete;
     ~string();
     
-    int length();
+    std::size_t length();
     int to_upper();
 
-
+    /* Overloads for operators */
     friend std::ostream& operator<<(std::ostream& stream, string& str) { stream << str.m_data; return stream; }
     
     friend string operator+(string& string1, string& string2)
@@ -31,9 +31,18 @@ public:
     {
         return this->m_data;
     }
+
+    string operator=(const char*&& data)
+    {
+        delete[] m_data;
+        m_data = nullptr;
+
+        return string(data);
+    }
+
     explicit operator const char*() const { return m_data; }
 private:
-    int calculate_size(const char* m_other);
+    std::size_t calculate_size(const char* m_other);
     char* m_data;
     std::size_t m_size;
     bool live_data;
