@@ -7,7 +7,7 @@ class string
 public:
     string(const char* m_other); 
     string();
-    string(char*&& ptr);
+    string(char*&& other);
     string(string&) = delete;
     ~string();
     
@@ -25,10 +25,7 @@ public:
  
         strcpy(str,string1.m_data);
         strcat(str,string2.m_data);
-        
-        string1.~string();
-        string2.~string();
-        return string(str);
+        return string(std::move(str));
     }
     const char* operator==(const char* param) const
     {

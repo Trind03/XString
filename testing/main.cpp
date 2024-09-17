@@ -7,19 +7,19 @@ class sample : public ::testing::Test
 public:
     void reset()
     {
-        data = "Hello, World!";
+        //data = "Hello, World!";
     }
 protected:
     void SetUp() override
     {
-        data = "Hello, World!";
+        //data = "Hello, World!";
     }
-
+    
     void TearDown() override
     {
-        data = "";
+        //data = "";
     }
-    string data;
+    string data = "Hello, World!";
 };
 
 TEST_F(sample,concat)

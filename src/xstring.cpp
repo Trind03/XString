@@ -4,12 +4,13 @@
 #include <iostream>
 
 #ifdef Debug
-    #define checkpoint(message) std::cout << message << std::endl;
+    #define checkpoint(message,obj,addr) std::cout << message << " - " << "Object: " << obj << " - address: " << addr << "\n\n";
 #endif
 
  
 string::string(const char* m_other): live_data(true), m_size(calculate_size(m_other))
 {
+    checkpoint("Assignment constructor",this,&this->m_data)
     m_data = new char[m_size + 1];
     m_data[m_size] = '\0';
     std::memcpy(m_data, m_other, m_size);
@@ -17,21 +18,23 @@ string::string(const char* m_other): live_data(true), m_size(calculate_size(m_ot
    
 string::string() : live_data(true), m_size(2)
 {
+    checkpoint("Default constructor",this,&this->m_data)
     m_data = new char[m_size];
     std::memcpy(m_data, " \0", m_size);
 }
 
-string::string(char*&& m_other): m_data(std::move(m_other)), live_data(true)
+string::string(char*&& other): m_data(std::move(other)), live_data(true)
 {
-    m_other = nullptr;
+    checkpoint("Move assignment constructor",this,&this->m_data)
+    other = nullptr;
 }
 
 string::~string() 
 {
-    if(live_data)
-    {
-        delete[] this->m_data;
-    }
+    checkpoint("default deconstructor",this,&this->m_data)
+    std::cout << this << std::endl;
+
+    delete[] this->m_data;
     m_data = nullptr;
 }
 

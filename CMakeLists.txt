@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.29)
 project(XString)
 
-add_compile_definitions(debug=true)
+add_compile_definitions(Debug=true)
 add_compile_options(-std=c++20)
 add_subdirectory(googletest)
 include_directories(
