@@ -30,7 +30,7 @@ string::~string()
 {
     if(live_data)
     {
-        delete[] m_data;
+        delete[] this->m_data;
     }
     m_data = nullptr;
 }
