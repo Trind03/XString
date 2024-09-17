@@ -3,6 +3,10 @@
 #include <cstring>
 #include <iostream>
 
+#ifdef Debug
+    #define checkpoint(message) std::cout << message << std::endl;
+#endif
+
  
 string::string(const char* m_other): live_data(true), m_size(calculate_size(m_other))
 {
