@@ -48,9 +48,9 @@ int string::calculate_size(const char* m_other)
 
 int string::to_upper()
 {
-    if(m_data == nullptr || length() == 0) return EXIT_FAILURE;
+    if(this->m_data == nullptr || this->length() == 0) return EXIT_FAILURE;
 
-    for(int i = 0; i < length(); i++)
+    for(int i = 0; i < this->length(); i++)
     {
 
     }
