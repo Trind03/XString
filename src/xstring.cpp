@@ -33,8 +33,6 @@ string::string(char*&& other): m_size(calculate_size(other))
 
 string::~string() 
 {
-    std::cout << "Destruction" << std::endl;
-
     delete[] this->m_data;
     m_data = nullptr;
 }
@@ -47,6 +45,8 @@ std::size_t string::calculate_size(const char* m_other)
 {
     int length = 0;
     while(m_other[length] != '\0') length++;
+    length++;
+    m_size = length;
     return length;
 }
 

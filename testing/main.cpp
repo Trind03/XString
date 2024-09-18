@@ -12,19 +12,19 @@ public:
 protected:
     void SetUp() override
     {
-        //data = "Hello, World!";
+        data = "Hello, World!";
     }
     
     void TearDown() override
     {
-        //data = "";
+        data = "";
     }
-    string data = "Hello, World!";
+    string data;
 };
 
 TEST_F(sample,concat)
 {
-    data = "New";
+    //data = "Hello, World!";
     ASSERT_EQ(data,"Hello, World!");
 }
 

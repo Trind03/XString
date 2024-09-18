@@ -32,12 +32,16 @@ public:
         return this->m_data;
     }
 
-    string operator=(const char*&& data)
+    string& operator=(const char*&& data)
     {
-        delete[] m_data;
-        m_data = nullptr;
-
-        return string(data);
+        if(m_data != data)
+        {
+            delete[] m_data;
+            m_data = nullptr;
+        }
+        m_data = new char[calculate_size(data)];
+        std::memcmp(m_data,data,m_size);
+        return *this;
     }
 
     explicit operator const char*() const { return m_data; }
