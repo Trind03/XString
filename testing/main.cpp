@@ -26,13 +26,13 @@ protected:
     string world;
 };
 
-TEST_F(sample, assignment)
+TEST_F(sample,concat)
 {
     string hello_World = hello + world;
-    ASSERT_EQ(hello_World,"Hello 1World!");
+    ASSERT_EQ(hello_World,"Hello, World!");
 }
 
-TEST_F(sample,concat)
+TEST_F(sample,assignment)
 {
     ASSERT_EQ(data,"Hello, World!");
 }
