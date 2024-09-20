@@ -28,8 +28,8 @@ protected:
 
 TEST_F(sample, assignment)
 {
-    string hello_World ="Hello World!";
-    ASSERT_EQ(hello_World,"Hello World!");
+    string hello_World = hello + world;
+    ASSERT_EQ(hello_World,"Hello 1World!");
 }
 
 TEST_F(sample,concat)

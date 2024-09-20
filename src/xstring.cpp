@@ -8,7 +8,7 @@
 #endif
 
  
-string::string(const char* m_other): m_size(calculate_size(m_other))
+string::string(const char* m_other): m_size(length(m_other))
 {
     m_data = new char[m_size];
     m_data[m_size] = '\0';
@@ -21,12 +21,12 @@ string::string() : m_size(2)
     std::memcpy(m_data, "\0", m_size);
 }
 
-string::string(char*&& other): m_size(calculate_size(other))
+string::string(char*&& other): m_size(length(other))
 {
     delete[] m_data;
     m_data = nullptr;
 
-    m_data = new char[calculate_size(other)];
+    m_data = new char[length(other)];
     std::memcpy(m_data,other,m_size);
     other = nullptr;
 }
@@ -41,13 +41,13 @@ std::size_t string::length()
 {
     return m_size;
 }
-std::size_t string::calculate_size(const char* m_other)
+std::size_t string::length(const char* m_other)
 {
-    int length = 0;
-    while(m_other[length] != '\0') length++;
-    length++;
-    m_size = length;
-    return length;
+    int volume = 0;
+    while(m_other[volume] != '\0') volume++;
+    volume++;
+    m_size = volume;
+    return m_size;
 }
 
 int string::to_upper()
