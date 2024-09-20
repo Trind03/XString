@@ -24,7 +24,6 @@ protected:
 
 TEST_F(sample,concat)
 {
-    //data = "Hello, World!";
     ASSERT_EQ(data,"Hello, World!");
 }
 
