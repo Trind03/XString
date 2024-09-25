@@ -36,7 +36,7 @@ public:
             m_data = nullptr;
         }
         m_data = new char[length(data)];
-        std::memcmp(m_data,data,m_size);
+        std::memcmp(m_data,data,length());
         return *this;
     }
 
@@ -44,6 +44,6 @@ public:
 private:
     std::size_t length(const char* m_other);
     char* m_data;
-    std::size_t m_size;
     bool live_data;
+    std::size_t m_size;
 };

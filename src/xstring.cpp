@@ -8,26 +8,26 @@
 #endif
 
  
-string::string(const char* m_other): m_size(length(m_other))
+string::string(const char* m_other)
 {
-    m_data = new char[m_size];
-    m_data[m_size] = '\0';
-    std::memcpy(m_data, m_other, m_size);
+    m_data = new char[length()];
+    m_data[length()] = '\0';
+    std::memcpy(m_data, m_other, length());
 }
    
-string::string() : m_size(2)
+string::string()
 {
-    m_data = new char[m_size];
-    std::memcpy(m_data, "\0", m_size);
+    m_data = new char[length()];
+    std::memcpy(m_data, "\0", length());
 }
 
-string::string(char*&& other): m_size(length(other))
+string::string(char*&& other)
 {
     delete[] m_data;
     m_data = nullptr;
 
     m_data = new char[length(other)];
-    std::memcpy(m_data,other,m_size);
+    std::memcpy(m_data,other,length());
     other = nullptr;
 }
 
@@ -39,16 +39,20 @@ string::~string()
 
 std::size_t string::length()
 {
-    return m_size;
+    std::size_t length = 0;
+    char *charptr = this->m_data;
+
+    if(this->m_data == nullptr)
+        return EXIT_FAILURE;
+
+    while(*charptr != '\0')
+    {
+        length++;
+        charptr++;
+    }
+    return length;
 }
-std::size_t string::length(const char* m_other)
-{
-    int volume = 0;
-    while(m_other[volume] != '\0') volume++;
-    volume++;
-    m_size = volume;
-    return m_size;
-}
+
 
 int string::to_upper()
 {
