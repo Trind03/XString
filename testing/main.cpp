@@ -14,7 +14,7 @@ protected:
     {
         data = "Hello, World!";
         hello = "Hello ";
-        world = "World!";
+        world = "World1!";
     }
     
     void TearDown() override
@@ -29,7 +29,7 @@ protected:
 TEST_F(sample,concat)
 {
     string hello_World = hello + world;
-    hello_World.length("hello world");
+    hello_World.length();
     ASSERT_EQ(hello_World,"Hello, World!");
 }
 

@@ -20,10 +20,8 @@ public:
     friend string operator+(string& string1, string& string2)
     {
         int total = string1.length(string1.m_data) + string2.length(string2.m_data);
-        const char*t = string1.m_data += *string1.m_data;
 
-        std::cout << t << std::endl;
-        return string("Hello world!");
+        return string(string1.m_data += *string1.m_data);
     }
     const char* operator==(const char* param) const
     {
