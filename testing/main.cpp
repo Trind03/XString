@@ -29,6 +29,7 @@ protected:
 TEST_F(sample,concat)
 {
     string hello_World = hello + world;
+    hello_World.length("hello world");
     ASSERT_EQ(hello_World,"Hello, World!");
 }
 

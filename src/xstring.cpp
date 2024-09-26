@@ -14,7 +14,7 @@ string::string(const char* m_other)
     m_data[length()] = '\0';
     std::memcpy(m_data, m_other, length());
 }
-   
+
 string::string()
 {
     m_data = new char[length()];
@@ -43,6 +43,21 @@ std::size_t string::length()
     char *charptr = this->m_data;
 
     if(this->m_data == nullptr)
+        return EXIT_FAILURE;
+
+    while(*charptr != '\0')
+    {
+        length++;
+        charptr++;
+    }
+    return length;
+}
+
+std::size_t string::length(const char* charptr)
+{
+    std::size_t length = 0;
+
+    if(charptr == nullptr)
         return EXIT_FAILURE;
 
     while(*charptr != '\0')
