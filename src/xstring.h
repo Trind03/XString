@@ -19,13 +19,9 @@ public:
     
     friend string operator+(string& string1, string& string2)
     {
-        int total = string1.calculate_size(string1.m_data) + string2.calculate_size(string2.m_data);
-        total++;
-        char* str = new char[total]; str[total - 1] = '\0';
- 
-        strcpy(str,string1.m_data);
-        strcat(str,string2.m_data);
-        return string(std::move(str));
+        int total = string1.length(string1.m_data) + string2.length(string2.m_data);
+
+        return string(string1.m_data += *string1.m_data);
     }
     const char* operator==(const char* param) const
     {
@@ -39,15 +35,15 @@ public:
             delete[] m_data;
             m_data = nullptr;
         }
-        m_data = new char[calculate_size(data)];
-        std::memcmp(m_data,data,m_size);
+        m_data = new char[length(data)];
+        std::memcmp(m_data,data,length());
         return *this;
     }
 
     explicit operator const char*() const { return m_data; }
 private:
-    std::size_t calculate_size(const char* m_other);
+    std::size_t length(const char* m_other);
     char* m_data;
-    std::size_t m_size;
     bool live_data;
+    std::size_t m_size;
 };

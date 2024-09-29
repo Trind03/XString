@@ -13,6 +13,8 @@ protected:
     void SetUp() override
     {
         data = "Hello, World!";
+        hello = "Hello ";
+        world = "World1!";
     }
     
     void TearDown() override
@@ -20,11 +22,19 @@ protected:
         data = "";
     }
     string data;
+    string hello;
+    string world;
 };
 
 TEST_F(sample,concat)
 {
-    //data = "Hello, World!";
+    string hello_World = hello + world;
+    hello_World.length();
+    ASSERT_EQ(hello_World,"Hello, World!");
+}
+
+TEST_F(sample,assignment)
+{
     ASSERT_EQ(data,"Hello, World!");
 }
 
