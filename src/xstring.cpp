@@ -39,18 +39,7 @@ string::~string()
 
 std::size_t string::length()
 {
-    std::size_t length = 0;
-    char *charptr = this->m_data;
-
-    if(this->m_data == nullptr)
-        return EXIT_FAILURE;
-
-    while(*charptr != '\0')
-    {
-        length++;
-        charptr++;
-    }
-    return length;
+    return this->m_size;
 }
 
 std::size_t string::length(const char* charptr)

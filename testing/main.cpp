@@ -30,6 +30,7 @@ TEST_F(sample,concat)
 {
     string hello_World = hello + world;
     hello_World.length();
+    std::cout << hello_World << std::endl;
     ASSERT_EQ(hello_World,"Hello, World!");
 }
 
@@ -40,6 +41,10 @@ TEST_F(sample,assignment)
 
 int main(int argc, char** argv)
 {
+    /*
     ::testing::InitGoogleTest(&argc,argv);
     return RUN_ALL_TESTS();
+    */
+   strlen("Hello world");
+   std::cout << strlen("Hello world") << std::endl;
 }

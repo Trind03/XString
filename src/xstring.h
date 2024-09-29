@@ -19,8 +19,6 @@ public:
     
     friend string operator+(string& string1, string& string2)
     {
-        int total = string1.length(string1.m_data) + string2.length(string2.m_data);
-
         return string(string1.m_data += *string1.m_data);
     }
     const char* operator==(const char* param) const
@@ -35,14 +33,15 @@ public:
             delete[] m_data;
             m_data = nullptr;
         }
-        m_data = new char[length(data)];
+        m_size = strlen(data);
+        m_data = new char[m_size];
         std::memcmp(m_data,data,length());
         return *this;
     }
 
     explicit operator const char*() const { return m_data; }
-private:
     std::size_t length(const char* m_other);
+private:
     char* m_data;
     bool live_data;
     std::size_t m_size;
