@@ -42,6 +42,7 @@ public:
     explicit operator const char*() const { return m_data; }
     std::size_t length(const char* m_other);
 private:
+    void write_size(const char* metadata);
     char* m_data;
     bool live_data;
     std::size_t m_size;

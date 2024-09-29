@@ -38,13 +38,16 @@ TEST_F(sample,assignment)
 {
     ASSERT_EQ(data,"Hello, World!");
 }
-
+#ifndef _DEBUG_
 int main(int argc, char** argv)
 {
-    /*
     ::testing::InitGoogleTest(&argc,argv);
     return RUN_ALL_TESTS();
-    */
-   strlen("Hello world");
-   std::cout << strlen("Hello world") << std::endl;
 }
+#else 
+int main()
+{
+    std::cout << "Debug function running" << "\n\n";
+    return EXIT_SUCCESS;
+}
+#endif
