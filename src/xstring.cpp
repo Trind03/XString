@@ -50,7 +50,7 @@ string::~string()
 std::size_t string::length()
 {
     std::size_t len = this->m_size;
-    return --len;
+    return len;
 }
 
 /* This function expects raw metadata without null termination */
