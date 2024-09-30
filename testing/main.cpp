@@ -14,7 +14,9 @@ public:
 protected:
     void SetUp() override
     {
-        data = "Hello, World!";
+        data = "Hello,1 World!";
+        first = "Hello,";
+        second = " World!";
     }
     
     void TearDown() override
@@ -22,26 +24,26 @@ protected:
         data = "";
     }
     string data;
+    string first;
+    string second;
 };
 
 TEST_F(sample,length_calculation)
 {
-    ASSERT_EQ(data.length(),13);
+    ASSERT_EQ(data.length(),14);
 }
-/*
+
 TEST_F(sample,concat)
 {
-    string hello_World = hello + world;
-    hello_World.length();
-    std::cout << hello_World << std::endl;
-    ASSERT_EQ(hello_World,"Hello, World!");
+    std::cout << data << std::endl;
+    ASSERT_EQ(data,"Hello, World!");
 }
 
 TEST_F(sample,assignment)
 {
     ASSERT_EQ(data,"Hello, World!");
 }
-*/
+
 #ifndef _DEBUG_
 int main(int argc, char** argv)
 {

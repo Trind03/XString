@@ -21,11 +21,15 @@ public:
         stream << str.m_data; return stream;
     }
     
+    // Out of order
+private:
     friend string operator+(string& string1, string& string2)
     {
         std::cout << "+ overload" << std::endl;
-        return string(string1.m_data += *string1.m_data);
+        char* new_data = new char[strlen(string1.m_data) + strlen(string2.m_data) + 1];
+        return string();
     }
+public:
     const char* operator==(const char* param) const
     {
         std::cout << "== overload" << std::endl;
