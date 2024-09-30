@@ -4,13 +4,14 @@
 #include <iostream>
 
 #ifdef Debug
-    #define checkpoint(message,obj,addr) std::cout << message << " - " << "Object: " << obj << " - address: " << addr << "\n\n";
+    #define checkpoint(message) std::cout << message << std::endl;
 #endif
 
  
 string::string(const char* m_other)
 {
-    std::cout << "Default assignment" << std::endl;
+    this->m_size = strlen(m_other);
+    checkpoint("Default assignment")
     write_size(m_other);
     m_data = new char[m_size];
     m_data[m_size] = '\0';
@@ -21,7 +22,7 @@ string::string(const char* m_other)
 string::string()
 {
     write_size("");
-    std::cout << "Default" << std::endl;
+    checkpoint("Default")
     m_data = new char[m_size];
     std::memcpy(m_data, "\0", length());
 }
@@ -29,7 +30,7 @@ string::string()
 string::string(char*&& other)
 {
     write_size(other);
-    std::cout << "Default copy" << std::endl;
+    checkpoint("Default copy")
 
     delete[] m_data;
     m_data = nullptr;
@@ -48,7 +49,8 @@ string::~string()
 
 std::size_t string::length()
 {
-    return this->m_size;
+    std::size_t len = this->m_size;
+    return --len;
 }
 
 /* This function expects raw metadata without null termination */
@@ -56,7 +58,7 @@ void string::write_size(const char* metadata)
 {
     std::size_t data_size = 0;
     data_size = strlen(metadata);
-    data_size += 1;
+    ++data_size;
     this->m_size = data_size;
     return;
 }

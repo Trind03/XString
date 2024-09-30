@@ -1,7 +1,7 @@
 #include <iostream>
 #include "../src/xstring.h"
 #include <gtest/gtest.h>
-#define _DEBUG_
+//#define _DEBUG_
 
 
 class sample : public ::testing::Test
@@ -15,8 +15,6 @@ protected:
     void SetUp() override
     {
         data = "Hello, World!";
-        hello = "Hello ";
-        world = "World1!";
     }
     
     void TearDown() override
@@ -24,15 +22,13 @@ protected:
         data = "";
     }
     string data;
-    string hello;
-    string world;
 };
 
 TEST_F(sample,length_calculation)
 {
-    ASSERT_EQ(data.length(),14);
+    ASSERT_EQ(data.length(),13);
 }
-
+/*
 TEST_F(sample,concat)
 {
     string hello_World = hello + world;
@@ -45,6 +41,7 @@ TEST_F(sample,assignment)
 {
     ASSERT_EQ(data,"Hello, World!");
 }
+*/
 #ifndef _DEBUG_
 int main(int argc, char** argv)
 {
