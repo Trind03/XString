@@ -35,8 +35,8 @@ TEST_F(sample,length_calculation)
 
 TEST_F(sample,concat)
 {
-    std::cout << data << std::endl;
-    ASSERT_EQ(data,"Hello, World!");
+    string c = first + second;
+    ASSERT_EQ(c,"Hello, World!");
 }
 
 TEST_F(sample,assignment)

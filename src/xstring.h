@@ -25,9 +25,15 @@ public:
 private:
     friend string operator+(string& string1, string& string2)
     {
+        std::size_t size = strlen(string1.m_data) + strlen(string2.m_data) + 1;
         std::cout << "+ overload" << std::endl;
-        char* new_data = new char[strlen(string1.m_data) + strlen(string2.m_data) + 1];
-        return string();
+        char* new_data = new char[size];
+        strcpy(new_data, string1.m_data);
+        strcpy(new_data, string2.m_data);
+        strcpy(new_data, "\0");
+        string data = std::move(new_data);
+        delete[] new_data;
+        return data;
     }
 public:
     const char* operator==(const char* param) const
