@@ -8,7 +8,6 @@ public:
     string(const char* m_other); 
     string();
     string(char*&& other);
-    string(string&) = delete;
     ~string();
     
     std::size_t length();
@@ -31,7 +30,7 @@ private:
         strcpy(new_data, string1.m_data);
         strcpy(new_data, string2.m_data);
         strcpy(new_data, "\0");
-        string data = std::move(new_data);
+        string data = string(std::move(new_data));
         delete[] new_data;
         return data;
     }
