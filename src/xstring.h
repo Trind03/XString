@@ -2,6 +2,10 @@
 #include <iostream>
 #include <cstring>
 
+#ifdef Debug
+    #define checkpoint(message) std::cout << message << std::endl;
+#endif
+
 class string
 {
 public:
@@ -20,10 +24,10 @@ public:
         stream << str.m_data; return stream;
     }
     
-    // Out of order
-private:
+
     friend string operator+(string& string1, string& string2)
     {
+        checkpoint("+ Overload")
         std::size_t size = strlen(string1.m_data) + strlen(string2.m_data) + 1;
         std::cout << "+ overload" << std::endl;
         char* new_data = new char[size];

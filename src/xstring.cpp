@@ -10,11 +10,10 @@
  
 string::string(const char* m_other)
 {
-    this->m_size = strlen(m_other);
     checkpoint("Default assignment")
     write_size(m_other);
     m_data = new char[m_size];
-    m_data[m_size] = '\0';
+    m_data[--m_size] = '\0';
     std::memcpy(m_data, m_other, length());
     std::cout << "Data size: " << m_size << std::endl;
 }
@@ -43,7 +42,7 @@ string::string(char*&& other)
 
 string::~string() 
 {
-    delete[] this->m_data;
+    delete[] m_data;
     m_data = nullptr;
 }
 
