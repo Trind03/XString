@@ -2,32 +2,52 @@
 #include <iostream>
 #include <cstring>
 
+#ifdef Debug
+    #define checkpoint(message) std::cout << message << std::endl;
+#endif
+
 class string
 {
 public:
     string(const char* m_other); 
     string();
     string(char*&& other);
-    string(string&) = delete;
     ~string();
     
     std::size_t length();
     int to_upper();
 
     /* Overloads for operators */
-    friend std::ostream& operator<<(std::ostream& stream, string& str) { stream << str.m_data; return stream; }
+    friend std::ostream& operator<<(std::ostream& stream, string& str)
+    {
+        std::cout << "<< overload" << std::endl;
+        stream << str.m_data; return stream;
+    }
     
+
     friend string operator+(string& string1, string& string2)
     {
-        return string(string1.m_data += *string1.m_data);
+        checkpoint("+ Overload")
+        std::size_t size = strlen(string1.m_data) + strlen(string2.m_data) + 1;
+        std::cout << "+ overload" << std::endl;
+        char* new_data = new char[size];
+        strcpy(new_data, string1.m_data);
+        strcpy(new_data, string2.m_data);
+        strcpy(new_data, "\0");
+        string data = string(std::move(new_data));
+        delete[] new_data;
+        return data;
     }
+public:
     const char* operator==(const char* param) const
     {
+        std::cout << "== overload" << std::endl;
         return this->m_data;
     }
 
     string& operator=(const char*&& data)
     {
+        std::cout << "= overload" << std::endl;
         if(m_data != data)
         {
             delete[] m_data;
