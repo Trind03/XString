@@ -29,9 +29,9 @@ public:
     {
         std::cout << "+ overload" << std::endl;
         unsigned int size = strlen(strcat(string1.m_data,string2.m_data));
-        char* Some_data = new char[--size];
-        Some_data = strcat(string1.m_data,string2.m_data);
-        return string(Some_data);
+        char* data = new char[--size];
+        data = strcat(string1.m_data,string2.m_data);
+        return string(data);
     }
 public:
     const char* operator==(const char* param) const
