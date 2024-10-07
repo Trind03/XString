@@ -42,6 +42,7 @@ string::string(char*&& other)
 
 string::~string() 
 {
+    std::cout << "Calling free on "<< sizeof(m_data) << " bytes" << std::endl;
     delete[] m_data;
     m_data = nullptr;
 }

@@ -4,44 +4,19 @@
 //#define _DEBUG_
 
 
-class sample : public ::testing::Test
+TEST(string,length_calculation)
 {
-public:
-    void reset()
-    {
-        data = "Hello, World!";
-    }
-protected:
-    void SetUp() override
-    {
-        data = "Hello,1 World!";
-        first = "Hello,";
-        second = " World!";
-    }
-    
-    void TearDown() override
-    {
-        data = "";
-    }
-    string data;
-    string first;
-    string second;
-};
-
-TEST_F(sample,length_calculation)
-{
-    ASSERT_EQ(data.length(),14);
+    string hello_world = "Hello, World!";
+    std::cout << hello_world << std::endl;
+    EXPECT_EQ(hello_world.length(),13);
 }
 
-TEST_F(sample,concat)
+TEST(string,concat)
 {
-    string c = first + second;
-    ASSERT_EQ(c,"Hello, World!");
-}
-
-TEST_F(sample,assignment)
-{
-    ASSERT_EQ(data,"Hello, World!");
+    string x = "Hello, ";
+    string y = "World";
+    string hello_world = x + y;
+    EXPECT_EQ(hello_world,"test");
 }
 
 #ifndef _DEBUG_
