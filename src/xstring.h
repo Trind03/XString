@@ -27,16 +27,11 @@ public:
 
     friend string operator+(string& string1, string& string2)
     {
-        checkpoint("+ Overload")
-        std::size_t size = strlen(string1.m_data) + strlen(string2.m_data) + 1;
         std::cout << "+ overload" << std::endl;
-        char* new_data = new char[size];
-        strcpy(new_data, string1.m_data);
-        strcpy(new_data, string2.m_data);
-        strcpy(new_data, "\0");
-        string data = string(std::move(new_data));
-        delete[] new_data;
-        return data;
+        unsigned int size = strlen(strcat(string1.m_data,string2.m_data));
+        char* Some_data = new char[--size];
+        Some_data = strcat(string1.m_data,string2.m_data);
+        return string(Some_data);
     }
 public:
     const char* operator==(const char* param) const
