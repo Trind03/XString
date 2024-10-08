@@ -57,7 +57,7 @@ public:
 
     operator const char*()
     {
-        std::cout << "011: " << this->m_data << std::endl;
+        std::cout << "010101010101: " << this->m_data << std::endl;
         return this->m_data;
     }
 
