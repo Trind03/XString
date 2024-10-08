@@ -33,7 +33,7 @@ public:
         char* data = new char[--size];
         data = strcat(string1.m_data,string2.m_data);
         return string(data);
-    }
+    };
 public:
     const char* operator==(const char*) const
     {
@@ -55,16 +55,10 @@ public:
         return *this;
     }
 
-    operator const char*()
+    operator const char*() const
     {
         std::cout << "010101010101: " << this->m_data << std::endl;
         return this->m_data;
-    }
-
-    operator const char()
-    {
-        std::cout << "010101010101: " << this->m_data << std::endl;
-        return *m_data;
     }
 
     std::size_t length(const char* m_other);
