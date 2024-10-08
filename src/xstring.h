@@ -55,11 +55,18 @@ public:
         return *this;
     }
 
-    explicit  operator const char*() const
+    operator const char*()
     {
         std::cout << "011: " << this->m_data << std::endl;
         return this->m_data;
     }
+
+    operator const char()
+    {
+        std::cout << "010101010101: " << this->m_data << std::endl;
+        return *m_data;
+    }
+
     std::size_t length(const char* m_other);
 private:
     void write_size(const char* metadata);
