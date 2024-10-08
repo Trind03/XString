@@ -21,7 +21,8 @@ public:
     friend std::ostream& operator<<(std::ostream& stream, string& str)
     {
         std::cout << "<< overload" << std::endl;
-        stream << str.m_data; return stream;
+        stream << str.m_data;
+        return stream;
     }
     
 
@@ -34,7 +35,7 @@ public:
         return string(data);
     }
 public:
-    const char* operator==(const char* param) const
+    const char* operator==(const char*) const
     {
         std::cout << "== overload" << std::endl;
         return this->m_data;
@@ -54,7 +55,11 @@ public:
         return *this;
     }
 
-    explicit operator const char*() const { return m_data; }
+    explicit  operator const char*() const
+    {
+        std::cout << "011: " << this->m_data << std::endl;
+        return this->m_data;
+    }
     std::size_t length(const char* m_other);
 private:
     void write_size(const char* metadata);
