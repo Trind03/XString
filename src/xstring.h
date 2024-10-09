@@ -30,9 +30,11 @@ public:
     {
         std::cout << "+ overload" << std::endl;
         unsigned int size = strlen(strcat(string1.m_data,string2.m_data));
-        char* data = new char[--size];
+        string data;
+        std::cout << "Before" << std::endl;
         data = strcat(string1.m_data,string2.m_data);
-        return string(data);
+        std::cout << "555666: " << data.m_data << std::endl;
+        return data;
     };
 public:
     const char* operator==(const char*) const
