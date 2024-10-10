@@ -2,26 +2,19 @@
 #include "xstring.h"
 #include <cstring>
 #include <iostream>
-
-#ifdef Debug
-    #define checkpoint(message) std::cout << message << std::endl;
-#endif
-
  
 string::string(const char* m_other)
 {
-    checkpoint("Default assignment")
     write_size(m_other);
     m_data = new char[m_size];
     m_data[--m_size] = '\0';
     std::memcpy(m_data, m_other, length());
-    std::cout << "Data size: " << m_size << std::endl;
 }
 
 string::string()
 {
     write_size("");
-    checkpoint("Default")
+
     m_data = new char[m_size];
     std::memcpy(m_data, "\0", length());
 }
@@ -29,7 +22,6 @@ string::string()
 string::string(char*&& other)
 {
     write_size(other);
-    checkpoint("Default copy")
 
     delete[] m_data;
     m_data = nullptr;
@@ -42,7 +34,6 @@ string::string(char*&& other)
 
 string::~string() 
 {
-    std::cout << "Calling free on "<< sizeof(m_data) << " bytes" << std::endl;
     delete[] m_data;
     m_data = nullptr;
 }

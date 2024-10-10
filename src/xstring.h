@@ -20,7 +20,6 @@ public:
     /* Overloads for operators */
     friend std::ostream& operator<<(std::ostream& stream, string& str)
     {
-        std::cout << "<< overload" << std::endl;
         stream << str.m_data;
         return stream;
     }
@@ -28,12 +27,9 @@ public:
 
     friend string operator+(string& string1, string& string2)
     {
-        std::cout << "+ overload" << std::endl;
         unsigned int size = strlen(strcat(string1.m_data,string2.m_data));
         string data;
-        std::cout << "Before" << std::endl;
         data = strcat(string1.m_data,string2.m_data);
-        std::cout << "555666: " << data.m_data << std::endl;
         return data;
     };
 public:
@@ -59,7 +55,6 @@ public:
 
     operator const char*() const
     {
-        std::cout << "010101010101: " << this->m_data << std::endl;
         return this->m_data;
     }
 
