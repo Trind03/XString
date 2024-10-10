@@ -33,10 +33,10 @@ public:
         return data;
     };
 public:
-    const char* operator==(string& ref) const
+    const char* operator==(const char*) const
     {
-        std::cout << "Value inside ==: " << ref.m_data << std::endl;
-        return ref.m_data;
+        std::cout << "Value inside ==: " << this->m_data << std::endl;
+        return this->m_data;
     }
 
     string& operator=(const char*&& data)
