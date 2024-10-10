@@ -7,7 +7,7 @@
 TEST(string,length_calculation)
 {
     string hello_world = "Hello, World!";
-    std::cout << hello_world << std::endl;
+
     EXPECT_EQ(hello_world.length(),13);
 }
 
@@ -16,7 +16,6 @@ TEST(string,concat)
     string x = "Hello, ";
     string y = "World";
     string hello_world = x + y;
-    std::cout << "123: " << hello_world << std::endl;
     //EXPECT_EQ(hello_world,"test");
     if(hello_world == "test")
         std::cout << "The same." << std::endl;

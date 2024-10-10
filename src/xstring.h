@@ -35,13 +35,11 @@ public:
 public:
     const char* operator==(const char*) const
     {
-        std::cout << "== overload" << std::endl;
         return this->m_data;
     }
 
     string& operator=(const char*&& data)
     {
-        std::cout << "= overload" << std::endl;
         if(m_data != data)
         {
             delete[] m_data;
