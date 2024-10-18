@@ -12,10 +12,15 @@ include_directories(
 
 )
 
+add_library(lib_xstring STATIC ${CMAKE_SOURCE_DIR}/src/xstring.cpp)
+
 add_executable(
     ${PROJECT_NAME}
-    ${CMAKE_SOURCE_DIR}/src/xstring.cpp
     ${CMAKE_SOURCE_DIR}/testing/main.cpp
 )
 
-target_link_libraries(${PROJECT_NAME} gtest gtest_main)
+target_link_libraries(${PROJECT_NAME} 
+    gtest
+    gtest_main
+    lib_xstring
+    )
