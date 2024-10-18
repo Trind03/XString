@@ -12,7 +12,7 @@ include_directories(
 
 )
 
-add_library(lib_xstring STATIC ${CMAKE_SOURCE_DIR}/src/xstring.cpp)
+add_library(string STATIC ${CMAKE_SOURCE_DIR}/src/xstring.cpp)
 
 add_executable(
     ${PROJECT_NAME}
